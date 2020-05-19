@@ -9,6 +9,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/alltasks", handler.GetAllTasks())
+	r.POST("/create", handler.CreateTask())
 
 	r.Run()
 }
