@@ -6,20 +6,20 @@ type task struct {
 	Description string `json:"description"`
 }
 
-var tasks []task
+var Tasks []task
 
-func CreateTasks() []task {
-	tasks = append(tasks,
+func CreateTasks(mySlice *[]task) []task {
+	*mySlice = append(Tasks,
 		task{ID: 1, Type: "Homework", Description: "This is a test"},
 		task{ID: 2, Type: "Maintenance", Description: "Computer Reparation"},
 	)
 
-	return tasks
+	return *mySlice
 }
 
-func UserProvidedTask(id int, taskType string, description string) task {
+func UserProvidedTask(id int, taskType string, description string, mySlice *[]task) task {
 	createdTask := task{ID: id, Type: taskType, Description: description}
-	tasks = append(tasks, createdTask)
+	*mySlice = append(Tasks, createdTask)
 
 	return createdTask
 }
